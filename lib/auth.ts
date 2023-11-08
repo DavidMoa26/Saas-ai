@@ -15,7 +15,7 @@ if (!googleCredentials.clientId || !googleCredentials.clientSecret) {
 
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: "sadqwdsf4234@!21k",
   providers: [
     GoogleProvider({
       clientId: googleCredentials.clientId,
