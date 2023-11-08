@@ -15,7 +15,6 @@ import { useRouter } from 'next/navigation'
 import { Empty } from "@/components/empty"
 import { Loader } from "@/components/loader"
 import { BotAvatar } from "@/components/bot-avatar"
-import { UserAvatar } from "@/components/user-avatar"
 import Typewriter from 'typewriter-effect';
 import { useProModal } from "@/app/hooks/use-pro-modal"
 
@@ -103,7 +102,7 @@ const ConversionPage = () => {
             {conversation.length === 0 && !isLoading && <Empty label="No conversation started" />}
             {conversation.map((conversation: Conversion, index) => (
               <div key={index} className="py-8 w-full flex flex-col gap-y-8 border border-black/10 rounded-lg">
-                <div className="px-8 flex items-center gap-x-4 rounded-lg bg-white"><UserAvatar /> {conversation.prompt}</div>
+                <div className="px-8 flex items-center gap-x-4 rounded-lg bg-white"> {conversation.prompt}</div>
                 <div className="px-6 flex items-center gap-x-4 rounded-lg bg-muted"><BotAvatar /> <Typewriter
                   onInit={(typewriter) => {
                     typewriter

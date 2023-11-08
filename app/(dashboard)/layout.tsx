@@ -1,8 +1,6 @@
 import Navbar from "@/components/navbar"
 import Sidebar from "@/components/sidebar"
-import { getApiLimitCount } from "@/lib/api-limit"
-import { useProModal } from "../hooks/use-pro-modal"
-import { use } from "react"
+import { signOut } from 'next-auth/react'
 
 const DashboardLayout = async ({
   children
@@ -10,7 +8,8 @@ const DashboardLayout = async ({
   children: React.ReactNode
 }) => {
 
-  const apiLimitCount = await getApiLimitCount()
+  const apiLimitCount = 5
+
 
   return (
     <div className="h-full relative">

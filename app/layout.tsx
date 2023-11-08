@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ClerkProvider } from '@clerk/nextjs'
+
 import ModalProvider from '@/components/modal-provider'
+import AuthProvider from '@/components/auth-provider'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,17 +15,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { session, ...params }
 }: {
   children: React.ReactNode
+  params: { session: any }
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <AuthProvider>
           <ModalProvider />
           {children}
-        </body>
-      </html>
-    </ClerkProvider>
+        </AuthProvider>
+      </body>
+    </html>
   )
 }
