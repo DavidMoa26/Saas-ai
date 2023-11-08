@@ -9,13 +9,15 @@ const googleCredentials = {
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 }
 
-if (!googleCredentials.clientId || !googleCredentials.clientSecret) {
+const secret = process.env.NEXTAUTH_SECRET
+
+if (!googleCredentials.clientId || !googleCredentials.clientSecret || !secret) {
   throw new Error('Missing google credentials')
 }
 
 
 export const authOptions: NextAuthOptions = {
-  secret: "sadqwdsf4234@!21k",
+  secret,
   providers: [
     GoogleProvider({
       clientId: googleCredentials.clientId,
