@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar"
 import Sidebar from "@/components/sidebar"
-import { signOut } from 'next-auth/react'
+import { getApiLimit } from "@/lib/api-limit"
 
 const DashboardLayout = async ({
   children
@@ -8,7 +8,7 @@ const DashboardLayout = async ({
   children: React.ReactNode
 }) => {
 
-  const apiLimitCount = 5
+  const apiLimitCount = await getApiLimit()
 
 
   return (

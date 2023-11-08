@@ -2,7 +2,7 @@
 
 import Heading from "@/components/heading"
 import { Code } from "lucide-react"
-import { set, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { formSchema } from "./constants"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -17,6 +17,7 @@ import { Loader } from "@/components/loader"
 import { BotAvatar } from "@/components/bot-avatar"
 import ReactMarkdown from 'react-markdown'
 import { useProModal } from "@/app/hooks/use-pro-modal"
+import { UserAvatar } from "@/components/user-avatar"
 
 type Conversion = {
   prompt: string
@@ -102,8 +103,8 @@ const CodePage = () => {
             {conversation.length === 0 && !isLoading && <Empty label="No conversation started" />}
             {conversation.map((conversation: Conversion, index) => (
               <div key={index} className="py-8 w-full flex flex-col gap-y-8 border border-black/10 rounded-lg">
-                <p className="px-8 flex items-center gap-x-4 rounded-lg bg-white"> {conversation.prompt}</p>
-                <p className="px-6 flex items-center gap-x-4 rounded-lg bg-muted"><BotAvatar /><ReactMarkdown components={{
+                <span className="px-8 flex items-center gap-x-4 rounded-lg bg-white"><UserAvatar /> {conversation.prompt}</span>
+                <span className="px-6 flex items-center gap-x-4 rounded-lg bg-muted"><BotAvatar /><ReactMarkdown components={{
                   pre: ({ node, ...props }) => (
                     <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg"><pre {...props} /></div>
                   ),
@@ -113,7 +114,7 @@ const CodePage = () => {
                 }}
                   className="text-sm overflow-hidden leading-7"
                 >
-                  {conversation.answer}</ReactMarkdown></p>
+                  {conversation.answer}</ReactMarkdown></span>
               </div>
             ))}
           </div>

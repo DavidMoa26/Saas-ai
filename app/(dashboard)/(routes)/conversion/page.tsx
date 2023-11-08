@@ -7,16 +7,18 @@ import * as z from "zod"
 import { formSchema } from "./constants"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import axios, { AxiosError, AxiosInstance } from "axios"
+import axios from "axios"
 import { useRouter } from 'next/navigation'
 import { Empty } from "@/components/empty"
 import { Loader } from "@/components/loader"
 import { BotAvatar } from "@/components/bot-avatar"
 import Typewriter from 'typewriter-effect';
 import { useProModal } from "@/app/hooks/use-pro-modal"
+import { useSession } from "next-auth/react"
+import { UserAvatar } from "@/components/user-avatar"
 
 type Conversion = {
   prompt: string
@@ -28,6 +30,8 @@ const ConversionPage = () => {
   const router = useRouter()
   const [conversation, setConversation] = useState<Conversion[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const { data } = useSession();
+
 
   const proModal = useProModal()
 
@@ -102,7 +106,7 @@ const ConversionPage = () => {
             {conversation.length === 0 && !isLoading && <Empty label="No conversation started" />}
             {conversation.map((conversation: Conversion, index) => (
               <div key={index} className="py-8 w-full flex flex-col gap-y-8 border border-black/10 rounded-lg">
-                <div className="px-8 flex items-center gap-x-4 rounded-lg bg-white"> {conversation.prompt}</div>
+                <div className="px-8 flex items-center gap-x-4 rounded-lg bg-white"><UserAvatar /> {conversation.prompt}</div>
                 <div className="px-6 flex items-center gap-x-4 rounded-lg bg-muted"><BotAvatar /> <Typewriter
                   onInit={(typewriter) => {
                     typewriter

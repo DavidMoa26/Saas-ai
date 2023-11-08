@@ -11,9 +11,13 @@ const userSchema = new Schema({
     unique: true,
     required: true
   },
-  picture: {
+  image: {
     type: String,
-  }
+  },
+  apiLimit: {
+    type: Number,
+    default: 5
+  },
 });
 
 const User = models.User || model("User", userSchema);
