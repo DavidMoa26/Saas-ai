@@ -7,7 +7,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { useSession, signIn } from 'next-auth/react'
 import { useRouter } from "next/navigation";
 
 const font = Montserrat({ weight: '600', subsets: ['latin'] });

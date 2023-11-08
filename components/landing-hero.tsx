@@ -1,11 +1,23 @@
 "use client";
 
 import TypewriterComponent from "typewriter-effect";
-import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 
 export const LandingHero = () => {
+
+  const router = useRouter()
+  const { status } = useSession()
+
+  const getStartedHandler = () => {
+    if (status === 'authenticated') {
+      router.push('/dashboard')
+    } else {
+      signIn('google', { callbackUrl: '/dashboard' })
+    }
+  }
+
 
   return (
     <div className="text-white font-bold py-36 text-center space-y-5">
@@ -30,11 +42,9 @@ export const LandingHero = () => {
         Create content using AI 10x faster.
       </div>
       <div>
-        <Link href={"/dashboard"}>
-          <Button variant="premium" className="md:text-lg p-4 md:p-6 rounded-full font-semibold">
-            Start Generating For Free
-          </Button>
-        </Link>
+        <Button onClick={getStartedHandler} variant="premium" className="md:text-lg p-4 md:p-6 rounded-full font-semibold">
+          Start Generating For Free
+        </Button>
       </div>
       <div className="text-zinc-400 text-xs md:text-sm font-normal">
         No credit card required.
