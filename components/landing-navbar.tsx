@@ -17,18 +17,15 @@ export const LandingNavbar = () => {
 
 
 
-
   const { status } = useSession()
   const router = useRouter()
 
   const getStartedHandler = () => {
 
-    const redirectUrlAfterLogin = process.env.BASE_URL + '/dashboard'
-
     if (status === 'authenticated') {
-      router.push(redirectUrlAfterLogin)
+      router.push('dashboard')
     } else {
-      signIn('google', { callbackUrl: redirectUrlAfterLogin })
+      signIn('google', { callbackUrl: process.env.BASE_URL + "/dashboard" })
     }
   }
 
