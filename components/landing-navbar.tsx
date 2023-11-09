@@ -19,6 +19,9 @@ export const LandingNavbar = () => {
   const { status } = useSession()
   const router = useRouter()
 
+  console.log(status);
+
+
   const getStartedHandler = () => {
 
     if (status === 'authenticated') {
