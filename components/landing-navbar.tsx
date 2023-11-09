@@ -17,13 +17,13 @@ export const LandingNavbar = () => {
   const { status } = useSession()
   const router = useRouter()
 
-  const getStartedHandler = () => {
-    if (status === 'authenticated') {
-      router.push('/dashboard')
-    } else {
-      signIn('google')
-    }
-  }
+  // const getStartedHandler = () => {
+  //   if (status === 'authenticated') {
+  //     router.push('/dashboard')
+  //   } else {
+  //     signIn('google')
+  //   }
+  // }
 
   return (
     <nav className="p-4 bg-transparent flex items-center justify-between">
@@ -36,7 +36,7 @@ export const LandingNavbar = () => {
         </h1>
       </Link>
       <div className="flex items-center gap-x-2">
-        <Button onClick={getStartedHandler} variant="outline" className="rounded-full">
+        <Button onClick={() => signIn('google')} variant="outline" className="rounded-full">
           Get Started
         </Button>
       </div>
