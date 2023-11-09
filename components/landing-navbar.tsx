@@ -15,6 +15,7 @@ const font = Montserrat({ weight: '600', subsets: ['latin'] });
 
 export const LandingNavbar = () => {
 
+  console.log(process.env.BASE_URL);
 
 
   const { status } = useSession()
