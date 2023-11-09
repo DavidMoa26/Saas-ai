@@ -21,7 +21,7 @@ export const LandingNavbar = () => {
   //   if (status === 'authenticated') {
   //     router.push('/dashboard')
   //   } else {
-  //     signIn('google')
+  //     signIn('google', { callbackUrl: 'https://saas-ai-lilac.vercel.app/' })
   //   }
   // }
 
@@ -36,7 +36,7 @@ export const LandingNavbar = () => {
         </h1>
       </Link>
       <div className="flex items-center gap-x-2">
-        <Button onClick={() => signIn('google')} variant="outline" className="rounded-full">
+        <Button onClick={() => signIn('google', { callbackUrl: 'https://saas-ai-lilac.vercel.app/' })} variant="outline" className="rounded-full">
           Get Started
         </Button>
       </div>
