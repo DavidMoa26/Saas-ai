@@ -15,8 +15,6 @@ const font = Montserrat({ weight: '600', subsets: ['latin'] });
 
 export const LandingNavbar = () => {
 
-  console.log(process.env.BASE_URL);
-
 
   const { status } = useSession()
   const router = useRouter()
@@ -24,7 +22,7 @@ export const LandingNavbar = () => {
   const getStartedHandler = () => {
 
     if (status === 'authenticated') {
-      router.push(process.env.BASE_URL + "/dashboard")
+      router.push('/dashboard')
     } else {
       signIn('google', { callbackUrl: process.env.BASE_URL + "/dashboard" })
     }
