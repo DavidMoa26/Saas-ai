@@ -19,15 +19,13 @@ export const LandingNavbar = () => {
   const { status } = useSession()
   const router = useRouter()
 
-  console.log(status);
-
 
   const getStartedHandler = () => {
 
     if (status === 'authenticated') {
       router.push('/dashboard')
     } else {
-      signIn('google')
+      signIn('google', { callbackUrl: '/dashboard' })
     }
   }
 
