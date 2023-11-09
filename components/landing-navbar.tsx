@@ -24,7 +24,7 @@ export const LandingNavbar = () => {
   const getStartedHandler = () => {
 
     if (status === 'authenticated') {
-      router.push('dashboard')
+      router.push(process.env.BASE_URL + "/dashboard")
     } else {
       signIn('google', { callbackUrl: process.env.BASE_URL + "/dashboard" })
     }
