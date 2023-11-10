@@ -13,7 +13,3 @@ export const connectDB = async () => {
     console.error(error);
   }
 };
-
-export const getUser = async (email: string) => {
-
-}
