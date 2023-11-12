@@ -4,7 +4,6 @@ import { Montserrat } from "next/font/google";
 import Image from "next/image"
 import Link from "next/link"
 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 import { useSession, signIn } from 'next-auth/react'
