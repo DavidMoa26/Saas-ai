@@ -23,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ModalProvider />
-        {children}
+        <AuthProvider>
+          <ModalProvider />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   )
