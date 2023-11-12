@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['oaidalleapiprodscus.blob.core.windows.net', 'soundhelix.com', 'i.ibb.co'],
+    domains: ['oaidalleapiprodscus.blob.core.windows.net', 'soundhelix.com', 'i.ibb.co', 'saas-ai-lilac.vercel.app'],
   },
   reactStrictMode: true,
   env: {
