@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from 'next/legacy/image'
-import { Settings, Code, Music, LayoutDashboard, MessageSquare, ImageIcon, VideoIcon, LogOut } from 'lucide-react'
+import { Code, Music, LayoutDashboard, MessageSquare, ImageIcon, VideoIcon, LogOut } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { usePathname } from 'next/navigation'
 import FreeCounter from "./free-counter"
@@ -53,11 +53,6 @@ const routes = [
     href: "/code",
     color: 'text-yellow-500'
 
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
   }
 ]
 
